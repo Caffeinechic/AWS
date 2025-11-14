@@ -10,6 +10,7 @@ import EventCalendar from './components/EventCalendar';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
 import RegistrationPage from './pages/RegistrationPage';
+import EventsPage from './components/EventsPage';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -90,6 +91,7 @@ function App() {
                   <Home />
                   <About />
                   <EventCalendar />
+                  <EventsPage />
                   <Contact />
                 </main>
                 <Footer />

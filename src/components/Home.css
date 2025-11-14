@@ -27,26 +27,36 @@
 .home-container {
   max-width: 1400px;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   z-index: 1;
   position: relative;
+  min-height: 80vh;
 }
 
 .home-content {
-  z-index: 2;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .home-title {
-  font-size: 72px;
+  font-size: 80px;
   font-weight: 900;
   color: #FFFFFF;
   margin-bottom: 30px;
-  min-height: 180px;
+  min-height: 200px;
   line-height: 1.1;
   letter-spacing: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
 }
 
 .typing-text {
@@ -65,17 +75,23 @@
 }
 
 .home-subtitle {
-  font-size: 22px;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 50px;
   line-height: 1.7;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  position: relative;
+  z-index: 10;
 }
 
 .home-buttons {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
 }
 
 .btn {
@@ -99,9 +115,9 @@
   box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
 }
 
-/* ✅ FIXED: Move boxShadow animation to CSS */
 .btn-primary:hover {
   box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
@@ -115,13 +131,19 @@
   background: rgba(139, 92, 246, 0.1);
   border-color: #A78BFA;
   box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
 }
 
+/* 3D Sphere - Positioned Behind Text */
 .home-3d {
-  width: 100%;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 600px;
   height: 600px;
-  position: relative;
   z-index: 1;
+  pointer-events: none;
 }
 
 .home-3d canvas {
@@ -130,21 +152,28 @@
 
 .sphere-glow {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 45%;
+  left: 45%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.4), transparent 70%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent 70%);
   border-radius: 50%;
-  filter: blur(60px);
+  filter: blur(80px);
   animation: pulse 3s ease-in-out infinite;
   pointer-events: none;
+  z-index: 0;
 }
 
 @keyframes pulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1); 
+    opacity: 0.4; 
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.15); 
+    opacity: 0.6; 
+  }
 }
 
 .scroll-indicator {
@@ -160,7 +189,7 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 3px;
-  z-index: 2;
+  z-index: 10;
 }
 
 .scroll-arrow {
@@ -170,33 +199,48 @@
 }
 
 @media (max-width: 968px) {
-  .home-container {
-    grid-template-columns: 1fr;
-    gap: 60px;
-    text-align: center;
-  }
-
   .home-title {
-    font-size: 52px;
-    min-height: 130px;
+    font-size: 56px;
+    min-height: 150px;
   }
 
-  .home-buttons {
-    justify-content: center;
+  .home-subtitle {
+    font-size: 20px;
   }
 
   .home-3d {
+    width: 450px;
+    height: 450px;
+  }
+
+  .sphere-glow {
+    width: 400px;
     height: 400px;
   }
 }
 
 @media (max-width: 480px) {
   .home-title {
-    font-size: 36px;
-    min-height: 100px;
+    font-size: 40px;
+    min-height: 120px;
+  }
+
+  .home-subtitle {
+    font-size: 18px;
+  }
+
+  .btn {
+    padding: 15px 35px;
+    font-size: 14px;
   }
 
   .home-3d {
+    width: 350px;
+    height: 350px;
+  }
+
+  .sphere-glow {
+    width: 300px;
     height: 300px;
   }
 }

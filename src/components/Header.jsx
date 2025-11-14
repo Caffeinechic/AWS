@@ -19,14 +19,45 @@ const Header = () => {
   };
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // Check if trying to navigate to events page
+    if (sectionId === 'events') {
+      window.location.hash = '#events';
       setIsMenuOpen(false);
+      return;
     }
+
+    // For other sections, check if we're on events page
+    if (window.location.hash === '#events') {
+      // If on events page, navigate to home first
+      window.location.hash = '';
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Normal scrolling on main page
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setIsMenuOpen(false);
   };
 
-  const navItems = ['home', 'about', 'calendar', 'contact'];
+  const handleRegister = () => {
+    window.location.hash = '#register';
+    setIsMenuOpen(false);
+  };
+
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'calendar', label: 'Calendar' },
+    { id: 'events', label: 'Events' },
+    { id: 'contact', label: 'Contact' }
+  ];
 
   return (
     <motion.header
@@ -42,7 +73,7 @@ const Header = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="logo-text">AWS</span>
+          <img src="/logo.png" alt="AWS Logo" className="logo-image" />
           <div className="logo-glow"></div>
         </motion.div>
 
@@ -50,19 +81,41 @@ const Header = () => {
           <ul className="nav-list">
             {navItems.map((item, index) => (
               <motion.li
-                key={item}
-                onClick={() => scrollToSection(item)}
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.1, textShadow: "0 0 8px #8B5CF6" }}
               >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {item.label}
                 <div className="nav-underline"></div>
               </motion.li>
             ))}
+            <motion.li className="nav-register-mobile">
+              <motion.button
+                className="register-btn-mobile"
+                onClick={handleRegister}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Register
+              </motion.button>
+            </motion.li>
           </ul>
         </nav>
+
+        <motion.button
+          className="register-btn"
+          onClick={handleRegister}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4 }}
+        >
+          Register
+        </motion.button>
 
         <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
           <span></span>

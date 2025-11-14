@@ -5,6 +5,32 @@ import './Footer.css';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const handleNavigation = (sectionId) => {
+    // Check if trying to navigate to events page
+    if (sectionId === 'events') {
+      window.location.hash = '#events';
+      return;
+    }
+
+    // For other sections, check if we're on events page
+    if (window.location.hash === '#events') {
+      // If on events page, navigate to home first
+      window.location.hash = '';
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Normal scrolling on main page
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -27,10 +53,11 @@ const Footer = () => {
         >
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#calendar">Events</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a onClick={() => handleNavigation('home')} style={{ cursor: 'pointer' }}>Home</a></li>
+            <li><a onClick={() => handleNavigation('about')} style={{ cursor: 'pointer' }}>About</a></li>
+            <li><a onClick={() => handleNavigation('calendar')} style={{ cursor: 'pointer' }}>Calendar</a></li>
+            <li><a onClick={() => handleNavigation('events')} style={{ cursor: 'pointer' }}>Events</a></li>
+            <li><a onClick={() => handleNavigation('contact')} style={{ cursor: 'pointer' }}>Contact</a></li>
           </ul>
         </motion.div>
 

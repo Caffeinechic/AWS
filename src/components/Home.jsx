@@ -5,10 +5,10 @@ import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import './Home.css';
 
 const phrases = [
-  'AI-POWERED FUTURE',
-  'NEXT-GEN CLOUD',
-  'DIGITAL INNOVATION',
-  '3D EXPERIENCES'
+  'STUDENT COMMUNITY DAY',
+  'AWS LEARNING EVENT',
+  'CLOUD INNOVATION',
+  'TECH EXCELLENCE'
 ];
 
 function AnimatedSphere() {
