@@ -55,9 +55,9 @@ const Home = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // ⭐ UPDATED REGISTER FUNCTION
   const handleRegisterClick = () => {
-    // Navigate to registration page using hash
-    window.location.hash = '#register';
+    window.location.href = 'https://konfhub.com/awsccsou-awsc-2025';
   };
 
   return (
@@ -79,7 +79,7 @@ const Home = () => {
               |
             </motion.span>
           </motion.h1>
-          
+
           <motion.p
             className="home-subtitle"
             initial={{ opacity: 0, y: 20 }}
@@ -88,7 +88,7 @@ const Home = () => {
           >
             Transforming tomorrow with cutting-edge technology and innovative solutions
           </motion.p>
-          
+
           <motion.div
             className="home-buttons"
             initial={{ opacity: 0, y: 20 }}
@@ -103,6 +103,7 @@ const Home = () => {
             >
               EXPLORE MORE
             </motion.button>
+
             <motion.button
               className="btn btn-secondary"
               onClick={handleRegisterClick}
