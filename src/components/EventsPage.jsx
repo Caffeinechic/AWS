@@ -43,18 +43,13 @@ const EventsPage = () => {
               { 
                 icon: <FaCalendarAlt />, 
                 title: 'Date & Time', 
-                info: ['December 12, 2025', '08:00 AM - 05:00 PM'] 
+                info: ['12th December, 2025', '08:00 AM - 05:00 PM'] 
               },
               { 
                 icon: <FaMapMarkerAlt />, 
                 title: 'Venue', 
                 info: ['Silver Oak University', 'Gota, Ahmedabad, Gujarat'] 
               },
-              { 
-                icon: <FaStar />, 
-                title: 'Event Type', 
-                info: ['AWS Student Community Day', 'Tech Conference'] 
-              }
             ].map((item, index) => (
               <motion.div
                 key={index}
