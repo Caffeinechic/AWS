@@ -66,7 +66,7 @@ const EventCalendar = () => {
       description: 'Explore the exciting career opportunities in cloud computing. Learn about industry trends, required skills, and how to build a successful career in AWS and cloud technologies.',
       category: 'Keynote',
       icon: FaAws,
-      gradient: 'from-purple-500 to-indigo-500'
+      gradient: 'from-blue-500 to-indigo-500'
     },
     {
       id: 4,
@@ -194,7 +194,7 @@ const EventCalendar = () => {
 
   const getCategoryColor = (category) => {
     const colors = {
-      'Keynote': '#8B5CF6',      // Purple - Opening, Keynote, Closing
+      'Keynote': '#3B82F6',      // Purple - Opening, Keynote, Closing
       'Technical': '#3B82F6',     // Blue - Technical Sessions
       'Workshop': '#F59E0B',      // Orange - All Workshops & Tracks
       'Activity': '#10B981',      // Green - Quiz & Cultural
@@ -224,14 +224,14 @@ const EventCalendar = () => {
           </motion.div>
           
           <h1 className="modern-title">
-            AWS Student Community Day
-            <span className="title-year">2025</span>
+            AWS Cloud Clubs Student Community Day Ahemdabad 2025
+            <span className="title-year"></span>
           </h1>
           
           <div className="event-meta">
             <div className="meta-item">
               <FaCalendarCheck />
-              <span>December 12, 2025</span>
+              <span>12<sup>th</sup> December 2025</span>
             </div>
             <div className="meta-divider"></div>
             <div className="meta-item">
