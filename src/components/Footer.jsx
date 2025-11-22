@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaLinkedin, FaInstagram, FaPhoneAlt } from 'react-icons/fa';
+import { Linkedin, Instagram, Phone } from 'lucide-react';
+import { FaXTwitter } from 'react-icons/fa6';
 import './Footer.css';
 
 const Footer = () => {
@@ -98,7 +99,7 @@ const Footer = () => {
                 <div key={index} className="contact-item">
                   <span className="contact-name">{contact.name}</span>
                   <a href={`tel:${contact.phone}`} className="contact-phone">
-                    <FaPhoneAlt className="phone-icon" />
+                    <Phone className="phone-icon" size={14} />
                     {contact.phone}
                   </a>
                 </div>
@@ -106,8 +107,8 @@ const Footer = () => {
             </motion.div>
           </div>
           <div className="email-section">
-            <a href="mailto:awscloudclubs@silveroakuni.ac.in" className="email-link">
-            awscloudclubs@silveroakuni.ac.in
+            <a href="mailto:ieee.tr@socet.edu.in" className="email-link">
+              ieee.tr@socet.edu.in
             </a>
           </div>
         </motion.div>
@@ -121,26 +122,30 @@ const Footer = () => {
         >
           <h4>Follow Us</h4>
           <div className="social-links">
-            <motion.a
-              href="https://www.linkedin.com/company/aws-cloud-clubs-sou"
+            <a
+              href="https://www.linkedin.com/company/ieee-silveroakuni/"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon linkedin"
-              whileHover={{ scale: 1.15, y: -5 }}
-              whileTap={{ scale: 0.95 }}
             >
-              <FaLinkedin />
-            </motion.a>
-            <motion.a
-              href="https://www.instagram.com/awscloudclubs.sou"
+              <Linkedin size={28} />
+            </a>
+            <a
+              href="https://www.instagram.com/ieee_silveroakuni?igsh=MThna29zbm52YTdhbQ=="
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon instagram"
-              whileHover={{ scale: 1.15, y: -5 }}
-              whileTap={{ scale: 0.95 }}
             >
-              <FaInstagram />
-            </motion.a>
+              <Instagram size={28} />
+            </a>
+            <a
+              href="https://x.com/IEEE_SilverOak?s=08"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon twitter"
+            >
+              <FaXTwitter />
+            </a>
           </div>
           <p className="social-description">
             Stay connected with us on social media for the latest updates, events, and cloud computing insights!

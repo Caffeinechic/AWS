@@ -29,7 +29,21 @@
 
 /* Brand Section */
 .footer-brand {
-  max-width: 350px;
+  max-width: 400px;
+}
+
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
 }
 
 .footer-section h3,
@@ -42,12 +56,12 @@
 }
 
 .footer-title {
-  font-size: 32px;
+  font-size: 28px;
   background: linear-gradient(135deg, #8B5CF6, #FFFFFF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .footer-tagline {
@@ -58,10 +72,20 @@
   letter-spacing: 0.5px;
 }
 
-.footer-description {
+.footer-address {
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
   font-size: 14px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-address:hover {
+  color: #8B5CF6;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+  transform: translateX(3px);
 }
 
 /* Quick Links */
@@ -204,59 +228,50 @@
 /* Social Media Section */
 .social-links {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   margin-bottom: 25px;
 }
 
 .social-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 15px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
-  font-size: 32px;
-  transition: all 0.3s ease;
+  color: #6B7280;
+  font-size: 28px;
   text-decoration: none;
-  position: relative;
-  overflow: hidden;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.social-icon::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.social-icon:hover::before {
-  opacity: 1;
+.social-icon:hover {
+  color: #6B7280;
 }
 
 .social-icon.linkedin {
-  background: linear-gradient(135deg, #0077B5, #005582);
-  border: 2px solid #0077B5;
+  color: #6B7280;
 }
 
 .social-icon.linkedin:hover {
-  box-shadow: 0 10px 40px rgba(0, 119, 181, 0.5);
-  transform: translateY(-5px);
+  color: #6B7280;
 }
 
 .social-icon.instagram {
-  background: linear-gradient(135deg, #E4405F, #C13584, #833AB4, #5851DB);
-  border: 2px solid #E4405F;
+  color: #6B7280;
 }
 
 .social-icon.instagram:hover {
-  box-shadow: 0 10px 40px rgba(228, 64, 95, 0.5);
-  transform: translateY(-5px);
+  color: #6B7280;
+}
+
+.social-icon.twitter {
+  color: #6B7280;
+}
+
+.social-icon.twitter:hover {
+  color: #6B7280;
 }
 
 .social-description {
@@ -319,6 +334,10 @@
     max-width: 100%;
   }
 
+  .footer-brand-header {
+    justify-content: center;
+  }
+
   .footer-title {
     font-size: 28px;
   }
@@ -369,9 +388,9 @@
   }
 
   .social-icon {
-    width: 55px;
-    height: 55px;
-    font-size: 28px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
   }
 
   .contact-grid {
