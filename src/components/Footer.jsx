@@ -48,9 +48,9 @@ const Footer = () => {
         >
           <div className="footer-brand-header">
             <img src="/logo.png" alt="AWS Cloud Clubs Logo" className="footer-logo" />
-            <h3 className="footer-title">AWS Cloud Clubs</h3>
+            
           </div>
-          <p className="footer-tagline">Silver Oak University</p>
+          
           <a 
             href="https://www.google.com/maps/dir//352%2F353,+Silver+Oak+University,+370%2F371,+near+Bhavik+Publication,+Gota+Gam,+Gota,+Ahmedabad,+Gujarat+382481/@23.0902832,72.4522362,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x395e833af6f39347:0xf1db9065daea7008!2m2!1d72.5346378!2d23.0903046?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
@@ -106,8 +106,8 @@ const Footer = () => {
             </motion.div>
           </div>
           <div className="email-section">
-            <a href="mailto:ieee.tr@socet.edu.in" className="email-link">
-              ieee.tr@socet.edu.in
+            <a href="mailto:awscloudclubs@silveroakuni.ac.in" className="email-link">
+            awscloudclubs@silveroakuni.ac.in
             </a>
           </div>
         </motion.div>

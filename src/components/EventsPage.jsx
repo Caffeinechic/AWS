@@ -48,7 +48,7 @@ const EventsPage = () => {
               { 
                 icon: <FaMapMarkerAlt />, 
                 title: 'Venue', 
-                info: ['Silver Oak University', 'Gota, Ahmedabad, Gujarat'] 
+                info: ['Aryabhata auditorium E Block 5th Floor, Silver Oak University', 'Gota, Ahmedabad, Gujarat'] 
               },
             ].map((item, index) => (
               <motion.div
