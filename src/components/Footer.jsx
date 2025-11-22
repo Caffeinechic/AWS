@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Instagram, Phone } from 'lucide-react';
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaLinkedin, FaInstagram, FaPhoneAlt } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
@@ -49,9 +48,9 @@ const Footer = () => {
         >
           <div className="footer-brand-header">
             <img src="/logo.png" alt="AWS Cloud Clubs Logo" className="footer-logo" />
-            
+            <h3 className="footer-title"></h3>
           </div>
-          
+          <p className="footer-tagline"></p>
           <a 
             href="https://www.google.com/maps/dir//352%2F353,+Silver+Oak+University,+370%2F371,+near+Bhavik+Publication,+Gota+Gam,+Gota,+Ahmedabad,+Gujarat+382481/@23.0902832,72.4522362,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x395e833af6f39347:0xf1db9065daea7008!2m2!1d72.5346378!2d23.0903046?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
@@ -99,7 +98,7 @@ const Footer = () => {
                 <div key={index} className="contact-item">
                   <span className="contact-name">{contact.name}</span>
                   <a href={`tel:${contact.phone}`} className="contact-phone">
-                    <Phone className="phone-icon" size={14} />
+                    <FaPhoneAlt className="phone-icon" />
                     {contact.phone}
                   </a>
                 </div>
@@ -107,8 +106,8 @@ const Footer = () => {
             </motion.div>
           </div>
           <div className="email-section">
-            <a href="mailto:ieee.tr@socet.edu.in" className="email-link">
-              ieee.tr@socet.edu.in
+            <a href="mailto:awscloudclubs@silveroakuni.ac.in" className="email-link">
+              awscloudclubs@silveroakuni.ac.in
             </a>
           </div>
         </motion.div>
@@ -122,30 +121,26 @@ const Footer = () => {
         >
           <h4>Follow Us</h4>
           <div className="social-links">
-            <a
-              href="https://www.linkedin.com/company/ieee-silveroakuni/"
+            <motion.a
+              href="https://www.linkedin.com/company/aws-cloud-clubs-sou"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon linkedin"
+              whileHover={{ scale: 1.15, y: -5 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <Linkedin size={28} />
-            </a>
-            <a
-              href="https://www.instagram.com/ieee_silveroakuni?igsh=MThna29zbm52YTdhbQ=="
+              <FaLinkedin />
+            </motion.a>
+            <motion.a
+              href="https://www.instagram.com/awscloudclubs.sou"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon instagram"
+              whileHover={{ scale: 1.15, y: -5 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <Instagram size={28} />
-            </a>
-            <a
-              href="https://x.com/IEEE_SilverOak?s=08"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon twitter"
-            >
-              <FaXTwitter />
-            </a>
+              <FaInstagram />
+            </motion.a>
           </div>
           <p className="social-description">
             Stay connected with us on social media for the latest updates, events, and cloud computing insights!
@@ -156,7 +151,8 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-content">
           <p>&copy; {currentYear} AWS Cloud Clubs - Silver Oak University. All rights reserved.</p>
-          <p className="footer-credits">Organized by IEEE Student Branch & Cloud Clubs</p>
+          <p className="footer-credits">Organized by AWS Cloud Club at Silver Oak University
+          </p>
         </div>
       </div>
     </footer>
