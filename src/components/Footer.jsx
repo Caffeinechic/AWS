@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaLinkedin, FaInstagram, FaPhoneAlt } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaPhoneAlt, FaMeetup } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
@@ -121,26 +121,30 @@ const Footer = () => {
         >
           <h4>Follow Us</h4>
           <div className="social-links">
-            <motion.a
+            <a
               href="https://www.linkedin.com/company/aws-cloud-clubs-sou"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon linkedin"
-              whileHover={{ scale: 1.15, y: -5 }}
-              whileTap={{ scale: 0.95 }}
             >
               <FaLinkedin />
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="https://www.instagram.com/awscloudclubs.sou"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon instagram"
-              whileHover={{ scale: 1.15, y: -5 }}
-              whileTap={{ scale: 0.95 }}
             >
               <FaInstagram />
-            </motion.a>
+            </a>
+            <a
+              href="https://www.meetup.com/aws-cloud-club-silver-oak-university/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon meetup"
+            >
+              <FaMeetup />
+            </a>
           </div>
           <p className="social-description">
             Stay connected with us on social media for the latest updates, events, and cloud computing insights!

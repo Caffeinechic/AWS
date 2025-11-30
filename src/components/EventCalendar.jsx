@@ -51,19 +51,20 @@ const EventCalendar = () => {
       duration: '15 minutes',
       location: 'Main Auditorium',
       description: 'Opening remarks and official commencement of the event. Join us for the grand opening of AWS Student Community Day 2025!',
-      category: 'Keynote',
+      category: 'General',
       icon: FaCalendarCheck,
       gradient: 'from-teal-500 to-cyan-500'
     },
     {
       id: 3,
-      title: 'Keynote: A Career in Cloud',
+      title: 'Keynote: Cloud Strategy',
       date: '2025-12-15',
       time: '09:45 AM - 10:20 AM',
       duration: '35 minutes',
       location: 'Main Auditorium',
       speaker: 'Dr. Bishwajit Mohapatra',
-      description: 'Explore the exciting career opportunities in cloud computing. Learn about industry trends, required skills, and how to build a successful career in AWS and cloud technologies.',
+      linkedIn: 'https://in.linkedin.com/in/biswajitmohapatra',
+      description: 'Explore strategic approaches to cloud adoption and transformation. Learn about cloud strategy frameworks, migration planning, and how organizations can leverage AWS to achieve their digital transformation goals.',
       category: 'Keynote',
       icon: FaAws,
       gradient: 'from-blue-500 to-indigo-500'
@@ -76,8 +77,9 @@ const EventCalendar = () => {
       duration: '50 minutes',
       location: 'Main Auditorium',
       speaker: 'Nilesh Vaghela',
+      linkedIn: 'https://in.linkedin.com/in/nilesh-vaghela',
       description: 'Dive into Amazon SageMaker and learn how to build, train, and deploy machine learning models at scale. Hands-on insights into ML workflows on AWS.',
-      category: 'Technical',
+      category: 'Sessions',
       icon: FaChartLine,
       gradient: 'from-blue-500 to-indigo-500'
     },
@@ -95,14 +97,15 @@ const EventCalendar = () => {
     },
     {
       id: 6,
-      title: 'Spec Coding with Kiro',
+      title: 'Amazon KIRO',
       date: '2025-12-15',
       time: '11:40 AM - 12:30 PM',
       duration: '50 minutes',
       location: 'Main Auditorium',
-      speaker: 'Shubham Londhe',
-      description: 'Learn about specification-based coding with Kiro. Discover how to automate development workflows and build robust CI/CD pipelines with AWS services.',
-      category: 'Workshop',
+      speaker: 'Ashish Patel',
+      linkedIn: 'https://in.linkedin.com/in/ashishkp',
+      description: 'Discover Amazon KIRO and its capabilities for modern application development. Learn about automation, deployment strategies, and how to streamline your development workflows with AWS services.',
+      category: 'Sessions',
       icon: FaCode,
       gradient: 'from-amber-500 to-orange-500'
     },
@@ -125,7 +128,8 @@ const EventCalendar = () => {
       time: '02:20 PM - 03:40 PM',
       duration: '80 minutes',
       location: 'CV Raman Hall',
-      speaker: 'Kiran Trivedi',
+      speaker: 'Dhaval Nagar',
+      linkedIn: 'https://in.linkedin.com/in/dhavaln',
       description: 'Intelligence at the IoT Edge with AWS IoT Greengrass. Learn how to build and deploy IoT solutions, connect devices, and process data at the edge with AWS IoT services.',
       category: 'Workshop',
       icon: FaNetworkWired,
@@ -139,7 +143,8 @@ const EventCalendar = () => {
       time: '02:20 PM - 03:40 PM',
       duration: '80 minutes',
       location: 'Newton Hall',
-      speaker: 'Vaibhav Malpani',
+      speaker: 'Adit Modi',
+      linkedIn: 'https://in.linkedin.com/in/adit-n-modi',
       description: 'Get hands-on with AWS DeepRacer! Learn reinforcement learning through autonomous racing. Train your own ML models and experience the thrill of AI-powered racing.',
       category: 'Workshop',
       icon: FaCar,
@@ -153,7 +158,8 @@ const EventCalendar = () => {
       time: '02:20 PM - 03:40 PM',
       duration: '80 minutes',
       location: 'Ramanujan Hall',
-      speaker: 'Udit Parekh',
+      speaker: 'Nirmal Pathak',
+      linkedIn: 'https://in.linkedin.com/in/nirmalpathak',
       description: 'Frontend and Backend App Development with AWS Amplify. Build full-stack serverless applications with authentication, APIs, storage, and more using AWS Amplify.',
       category: 'Workshop',
       icon: FaLaptopCode,
@@ -180,13 +186,13 @@ const EventCalendar = () => {
       duration: '15 minutes',
       location: 'E Block, Ground Floor',
       description: 'Distribution of goodies and closing notes. Collect your AWS swags, certificates, and participate in the closing ceremony. Thank you for being part of AWS SCD 2025!',
-      category: 'Keynote',
+      category: 'General',
       icon: FaGift,
       gradient: 'from-purple-500 to-indigo-500'
     }
   ];
 
-  const categories = ['All', 'Keynote', 'Technical', 'Workshop', 'Activity', 'Break'];
+  const categories = ['All', 'General', 'Keynote', 'Sessions', 'Workshop', 'Activity', 'Break'];
 
   const filteredEvents = activeCategory === 'All' 
     ? events 
@@ -194,10 +200,11 @@ const EventCalendar = () => {
 
   const getCategoryColor = (category) => {
     const colors = {
-      'Keynote': '#3B82F6',      // Purple - Opening, Keynote, Closing
-      'Technical': '#3B82F6',     // Blue - Technical Sessions
+      'General': '#6B7280',       // Gray - General events
+      'Keynote': '#3B82F6',      // Blue - Opening, Keynote, Closing
+      'Sessions': '#10B981',     // Green - Technical Sessions
       'Workshop': '#F59E0B',      // Orange - All Workshops & Tracks
-      'Activity': '#10B981',      // Green - Quiz & Cultural
+      'Activity': '#EC4899',      // Pink - Quiz & Cultural
       'Break': '#6B7280'          // Gray - Food & Breaks
     };
     return colors[category] || '#8B5CF6';
@@ -330,7 +337,19 @@ const EventCalendar = () => {
                   {event.speaker && (
                     <div className="speaker-tag">
                       <FaUser />
-                      <span>{event.speaker}</span>
+                      {event.linkedIn ? (
+                        <a 
+                          href={event.linkedIn} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="speaker-link"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {event.speaker}
+                        </a>
+                      ) : (
+                        <span>{event.speaker}</span>
+                      )}
                     </div>
                   )}
                   
@@ -433,7 +452,18 @@ const EventCalendar = () => {
                         <FaUser className="info-icon" />
                         <div className="info-content">
                           <span className="info-label">Speaker</span>
-                          <span className="info-text">{selectedEvent.speaker}</span>
+                          {selectedEvent.linkedIn ? (
+                            <a 
+                              href={selectedEvent.linkedIn} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="info-text speaker-link"
+                            >
+                              {selectedEvent.speaker}
+                            </a>
+                          ) : (
+                            <span className="info-text">{selectedEvent.speaker}</span>
+                          )}
                         </div>
                       </div>
                     )}
@@ -444,14 +474,7 @@ const EventCalendar = () => {
                     <p>{selectedEvent.description}</p>
                   </div>
 
-                  <motion.button
-                    className="register-btn-modern"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    style={{ background: getCategoryColor(selectedEvent.category) }}
-                  >
-                    <FaCalendarCheck /> Add to My Schedule
-                  </motion.button>
+
                 </div>
               </motion.div>
             </motion.div>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import './Home.css';
 
 const phrases = [
@@ -11,20 +9,7 @@ const phrases = [
   'TECH EXCELLENCE'
 ];
 
-function AnimatedSphere() {
-  return (
-    <Sphere args={[1, 100, 200]} scale={2.5}>
-      <MeshDistortMaterial
-        color="#8B5CF6"
-        attach="material"
-        distort={0.5}
-        speed={2}
-        roughness={0.2}
-        metalness={0.8}
-      />
-    </Sphere>
-  );
-}
+
 
 const Home = () => {
   const [text, setText] = useState('');
@@ -97,7 +82,7 @@ const Home = () => {
           >
             <motion.button
               className="btn btn-primary"
-              onClick={() => scrollToSection('about')}
+              onClick={() => scrollToSection('calendar')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -115,21 +100,7 @@ const Home = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          className="home-3d"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        >
-          <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[10, 10, 5]} intensity={1} />
-            <pointLight position={[-10, -10, -5]} color="#8B5CF6" intensity={2} />
-            <AnimatedSphere />
-            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
-          </Canvas>
-          <div className="sphere-glow"></div>
-        </motion.div>
+
       </div>
 
       <motion.div

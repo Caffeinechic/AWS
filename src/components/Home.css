@@ -134,47 +134,7 @@
   transform: translateY(-2px);
 }
 
-/* 3D Sphere - Positioned Behind Text */
-.home-3d {
-  position: absolute;
-  top: 45%;
-  left: 45%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
-  z-index: 1;
-  pointer-events: none;
-}
 
-.home-3d canvas {
-  border-radius: 20px;
-}
-
-.sphere-glow {
-  position: absolute;
-  top: 45%;
-  left: 45%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent 70%);
-  border-radius: 50%;
-  filter: blur(80px);
-  animation: pulse 3s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes pulse {
-  0%, 100% { 
-    transform: translate(-50%, -50%) scale(1); 
-    opacity: 0.4; 
-  }
-  50% { 
-    transform: translate(-50%, -50%) scale(1.15); 
-    opacity: 0.6; 
-  }
-}
 
 .scroll-indicator {
   position: absolute;
@@ -221,15 +181,7 @@
     font-size: 20px;
   }
 
-  .home-3d {
-    width: 450px;
-    height: 450px;
-  }
 
-  .sphere-glow {
-    width: 400px;
-    height: 400px;
-  }
 
   .scroll-indicator {
     bottom: 30px;
@@ -251,15 +203,7 @@
     font-size: 14px;
   }
 
-  .home-3d {
-    width: 350px;
-    height: 350px;
-  }
 
-  .sphere-glow {
-    width: 300px;
-    height: 300px;
-  }
 
   .scroll-indicator {
     bottom: 20px;

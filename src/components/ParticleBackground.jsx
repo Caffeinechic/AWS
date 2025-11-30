@@ -55,30 +55,7 @@ function ParticleField({ mousePosition }) {
   );
 }
 
-function FloatingGeometry() {
-  const ref = useRef();
-  
-  useFrame((state) => {
-    const time = state.clock.getElapsedTime();
-    if (ref.current) {
-      ref.current.rotation.x = time * 0.2;
-      ref.current.rotation.y = time * 0.3;
-      ref.current.position.y = Math.sin(time * 0.5) * 0.5;
-    }
-  });
 
-  return (
-    <mesh ref={ref} position={[3, 0, -5]}>
-      <torusKnotGeometry args={[0.5, 0.2, 128, 32]} />
-      <meshStandardMaterial
-        color="#A78BFA"
-        emissive="#8B5CF6"
-        emissiveIntensity={0.5}
-        wireframe
-      />
-    </mesh>
-  );
-}
 
 function ParticleBackground({ mousePosition }) {
   return (
@@ -95,7 +72,6 @@ function ParticleBackground({ mousePosition }) {
         <pointLight position={[10, 10, 10]} intensity={1} color="#8B5CF6" />
         <pointLight position={[-10, -10, -10]} intensity={0.5} color="#A78BFA" />
         <ParticleField mousePosition={mousePosition} />
-        <FloatingGeometry />
       </Canvas>
     </div>
   );

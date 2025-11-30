@@ -225,53 +225,49 @@
   color: #8B5CF6;
 }
 
-/* Social Media Section */
+/* Social Media Section - Custom CSS */
 .social-links {
-  display: flex;
-  gap: 15px;
+  display: block;
+  width: 100%;
   margin-bottom: 25px;
 }
 
 .social-icon {
+  display: inline-block;
   width: 50px;
   height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #6B7280;
-  font-size: 28px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 24px;
   text-decoration: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  vertical-align: top;
+}
+
+.social-icon:last-child {
+  margin-right: 0;
 }
 
 .social-icon:hover {
-  color: #6B7280;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
 }
 
 .social-icon.linkedin {
-  color: #6B7280;
-}
-
-.social-icon.linkedin:hover {
-  color: #6B7280;
+  color: #0077B5;
 }
 
 .social-icon.instagram {
-  color: #6B7280;
+  color: #E4405F;
 }
 
-.social-icon.instagram:hover {
-  color: #6B7280;
-}
-
-.social-icon.twitter {
-  color: #6B7280;
-}
-
-.social-icon.twitter:hover {
-  color: #6B7280;
+.social-icon.meetup {
+  color: #ED1C40;
 }
 
 .social-description {
@@ -369,7 +365,13 @@
   }
 
   .social-links {
-    justify-content: center;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .social-icon {
+    margin-right: 15px;
+    margin-left: 15px;
   }
 
   .social-description {

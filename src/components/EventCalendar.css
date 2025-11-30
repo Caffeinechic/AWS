@@ -267,6 +267,30 @@
   flex-shrink: 0;
 }
 
+.speaker-link {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+
+.speaker-link:hover {
+  color: #8B5CF6;
+  border-bottom-color: #8B5CF6;
+  transform: translateY(-1px);
+}
+
+.info-text.speaker-link {
+  color: #8B5CF6;
+  font-weight: 700;
+}
+
+.info-text.speaker-link:hover {
+  color: #A78BFA;
+  text-decoration: underline;
+}
+
 .location-tag {
   margin-bottom: 18px;
   padding-bottom: 18px;
@@ -315,9 +339,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2000;
+  z-index: 10000;
   backdrop-filter: blur(10px);
   padding: 20px;
+  padding-top: 100px; /* Add top padding to avoid navbar overlap */
 }
 
 .modal-modern {
@@ -326,11 +351,12 @@
   border-radius: 25px;
   max-width: 800px;
   width: 100%;
-  max-height: 90vh;
+  max-height: calc(90vh - 80px); /* Adjust max height to account for navbar */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-top: 20px; /* Additional top margin for safety */
 }
 
 .modal-close-modern {

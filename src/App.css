@@ -120,44 +120,28 @@ body {
 /* Scroll to Top Button */
 .scroll-to-top {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-dark) 100%);
-  color: var(--white);
-  border: 2px solid var(--purple-light);
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: rgba(139, 92, 246, 0.9);
+  color: white;
+  border: none;
   border-radius: 50%;
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 20px;
   cursor: pointer;
   z-index: 1000;
-  box-shadow: 
-    0 0 30px var(--purple-glow),
-    0 10px 40px rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.scroll-to-top::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  background: linear-gradient(135deg, var(--purple-light), var(--purple-primary));
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-  filter: blur(20px);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.1); }
+.scroll-to-top:hover {
+  background: rgba(139, 92, 246, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 /* Glow Effects */

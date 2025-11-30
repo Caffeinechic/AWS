@@ -2,17 +2,80 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaUsers, 
-  FaClock,
   FaCalendarAlt,
-  FaStar,
-  FaMapMarkerAlt
+  FaMapMarkerAlt,
+  FaLinkedin,
+  FaChevronLeft,
+  FaChevronRight
 } from 'react-icons/fa';
 import './EventsPage.css';
 
+const speakers = [
+  {
+    id: 1,
+    name: 'Dr. Bishwajit Mohapatra',
+    linkedin: 'https://in.linkedin.com/in/biswajitmohapatra',
+    title: 'Cloud Computing Expert',
+    image: '/images/BG_removed_speakers/Dr. Bishwajit Mohapatra.png'
+  },
+  {
+    id: 2,
+    name: 'Mr. Nilesh Vaghela',
+    linkedin: 'https://in.linkedin.com/in/nilesh-vaghela',
+    title: 'AWS Machine Learning Specialist',
+    image: '/images/BG_removed_speakers/Nilesh Vaghela.png'
+  },
+  {
+    id: 3,
+    name: 'Mr. Ashish Patel',
+    linkedin: 'https://in.linkedin.com/in/ashishkp',
+    title: 'DevOps & Cloud Solutions Expert',
+    image: '/images/BG_removed_speakers/Ashish Patel.png'
+  },
+  {
+    id: 4,
+    name: 'Mr. Dhaval Nagar',
+    linkedin: 'https://in.linkedin.com/in/dhavaln',
+    title: 'Cloud Architecture Expert',
+    image: '/images/BG_removed_speakers/Dhaval Nagar.png'
+  },
+  {
+    id: 5,
+    name: 'Mr. Nirmal Pathak',
+    linkedin: 'https://in.linkedin.com/in/nirmalpathak',
+    title: 'AWS Solutions Architect',
+    image: '/images/BG_removed_speakers/Nirmal Pathak.png'
+  },
+  {
+    id: 6,
+    name: 'Mr. Adit Modi',
+    linkedin: 'https://in.linkedin.com/in/adit-n-modi',
+    title: 'Cloud Computing Evangelist',
+    image: '/images/BG_removed_speakers/AditModi.png'
+  }
+];
+
 const EventsPage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const speakersPerSlide = 2;
+  const totalSlides = Math.ceil(speakers.length / speakersPerSlide);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const getCurrentSpeakers = () => {
+    const start = currentSlide * speakersPerSlide;
+    return speakers.slice(start, start + speakersPerSlide);
+  };
 
   return (
     <section id="events" className="events">
@@ -43,12 +106,13 @@ const EventsPage = () => {
               { 
                 icon: <FaCalendarAlt />, 
                 title: 'Date & Time', 
-                info: ['12th December, 2025', '08:00 AM - 05:00 PM'] 
+                info: ['12<sup>th</sup> December, 2025', '08:00 AM - 05:00 PM'],
+                useHTML: true
               },
               { 
                 icon: <FaMapMarkerAlt />, 
                 title: 'Venue', 
-                info: ['Aryabhata auditorium E Block 5th Floor, Silver Oak University', 'Gota, Ahmedabad, Gujarat'] 
+                info: ['Aryabhata auditorium E Block 5th Floor, Silver Oak University', 'Gota, Ahmedabad, Gujarat']
               },
             ].map((item, index) => (
               <motion.div
@@ -63,7 +127,11 @@ const EventsPage = () => {
                 <div className="info-icon">{item.icon}</div>
                 <h3>{item.title}</h3>
                 {item.info.map((line, i) => (
-                  <p key={i}>{line}</p>
+                  item.useHTML ? (
+                    <p key={i} dangerouslySetInnerHTML={{ __html: line }} />
+                  ) : (
+                    <p key={i}>{line}</p>
+                  )
                 ))}
               </motion.div>
             ))}
@@ -79,7 +147,7 @@ const EventsPage = () => {
           >
             {/* Speakers Section */}
             <motion.div
-              className="revealing-section"
+              className="speakers-carousel-section"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -89,25 +157,62 @@ const EventsPage = () => {
                 <FaUsers className="section-icon" />
               </div>
               <h3 className="section-heading">SPEAKERS</h3>
-              <div className="revealing-box">
-                <motion.div
-                  className="revealing-content"
-                  initial={{ scale: 0.9 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
-                >
-                  <div className="clock-icon">
-                    <FaClock />
-                  </div>
-                  <h4>Revealing Soon</h4>
-                  <p>Our amazing lineup of speakers will be announced shortly. Stay tuned!</p>
-                  <div className="dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </motion.div>
+              
+              <div className="carousel-container">
+                <button className="carousel-btn prev" onClick={prevSlide}>
+                  <FaChevronLeft />
+                </button>
+                
+                <div className="speakers-grid">
+                  {getCurrentSpeakers().map((speaker, index) => (
+                    <motion.div
+                      key={speaker.id}
+                      className="speaker-card"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <div className="speaker-image">
+                        <img 
+                          src={speaker.image} 
+                          alt={speaker.name}
+                          className="speaker-photo"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'flex';
+                          }}
+                        />
+                        <div className="speaker-placeholder" style={{display: 'none'}}>
+                          {speaker.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                      </div>
+                      <h4 className="speaker-name">{speaker.name}</h4>
+                      <p className="speaker-title">{speaker.title}</p>
+                      <a 
+                        href={speaker.linkedin} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="linkedin-btn"
+                      >
+                        <FaLinkedin /> Connect
+                      </a>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                <button className="carousel-btn next" onClick={nextSlide}>
+                  <FaChevronRight />
+                </button>
+              </div>
+              
+              <div className="carousel-dots">
+                {Array.from({ length: totalSlides }).map((_, index) => (
+                  <button
+                    key={index}
+                    className={`dot ${currentSlide === index ? 'active' : ''}`}
+                    onClick={() => setCurrentSlide(index)}
+                  />
+                ))}
               </div>
             </motion.div>
           </motion.div>
