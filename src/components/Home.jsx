@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import './Home.css';
 
 const phrases = [
-  'STUDENT COMMUNITY DAY',
-  'AWS LEARNING EVENT',
-  'CLOUD INNOVATION',
-  'TECH EXCELLENCE'
+  'EVENT SUCCESSFULLY COMPLETED',
+  'AWS LEARNING CELEBRATION',
+  'CLOUD INNOVATION ACHIEVED',
+  'TECH EXCELLENCE DELIVERED'
 ];
 
 
@@ -40,11 +40,6 @@ const Home = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // ⭐ UPDATED REGISTER FUNCTION
-  const handleRegisterClick = () => {
-    window.location.href = 'https://konfhub.com/awsccsou-awsc-2025';
-  };
-
   return (
     <section id="home" className="home">
       <div className="home-container">
@@ -71,7 +66,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Transforming tomorrow with cutting-edge technology and innovative solutions
+            Thank you for making AWS Cloud Clubs Student Community Day Ahmedabad 2025 a tremendous success! Together we transformed learning into innovation.
           </motion.p>
 
           <motion.div
@@ -82,20 +77,29 @@ const Home = () => {
           >
             <motion.button
               className="btn btn-primary"
-              onClick={() => scrollToSection('calendar')}
+              onClick={() => scrollToSection('highlights')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              EXPLORE MORE
+              VIEW HIGHLIGHTS
             </motion.button>
 
             <motion.button
               className="btn btn-secondary"
-              onClick={handleRegisterClick}
+              onClick={() => scrollToSection('calendar')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              REGISTER NOW
+              EVENT DETAILS
+            </motion.button>
+
+            <motion.button
+              className="btn btn-tertiary"
+              onClick={() => scrollToSection('contact')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              CONTACT US!
             </motion.button>
           </motion.div>
         </motion.div>

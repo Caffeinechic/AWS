@@ -8,8 +8,8 @@ import Home from './components/Home';
 import EventCalendar from './components/EventCalendar';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
-import RegistrationPage from './pages/RegistrationPage';
 import EventsPage from './components/EventsPage';
+import EventHighlights from './components/EventHighlights';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -21,22 +21,11 @@ function App() {
   };
 
   useEffect(() => {
-    // Check URL hash to determine which page to show
-    const hash = window.location.hash;
-    if (hash === '#register') {
-      setCurrentPage('register');
-    } else {
-      setCurrentPage('home');
-    }
+    setCurrentPage('home');
 
     // Listen for hash changes
     const handleHashChange = () => {
-      if (window.location.hash === '#register') {
-        setCurrentPage('register');
-        window.scrollTo(0, 0);
-      } else {
-        setCurrentPage('home');
-      }
+      setCurrentPage('home');
     };
 
     window.addEventListener('hashchange', handleHashChange);
@@ -70,24 +59,18 @@ function App() {
             transition={{ duration: 0.8 }}
           >
             <ParticleBackground />
-            
-            {currentPage === 'register' ? (
-              <RegistrationPage />
-            ) : (
-              <>
-                <Header />
-                <main className="main-content">
-                  <Home />
-                  <EventCalendar />
-                  <EventsPage />
-                  <Contact />
-                </main>
-                <Footer />
-              </>
-            )}
+            <Header />
+            <main className="main-content">
+              <Home />
+              <EventHighlights />
+              <EventCalendar />
+              <EventsPage />
+              <Contact />
+            </main>
+            <Footer />
             
             <AnimatePresence>
-              {showScrollTop && currentPage === 'home' && (
+              {showScrollTop && (
                 <motion.button
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}

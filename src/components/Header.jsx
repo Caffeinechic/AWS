@@ -42,17 +42,12 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  // ⭐ UPDATED REGISTER FUNCTION
-  const handleRegister = () => {
-    window.location.href = 'https://konfhub.com/awsccsou-awsc-2025';
-    setIsMenuOpen(false);
-  };
-
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'calendar', label: 'Calendar' },
-    { id: 'events', label: 'Events' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'highlights', label: 'Event Highlights' },
+    { id: 'calendar', label: 'Agenda' },
+    { id: 'events', label: 'Speakers' },
+    { id: 'contact', label: 'Get In Touch' }
   ];
 
   return (
@@ -92,31 +87,8 @@ const Header = () => {
                 <div className="nav-underline"></div>
               </motion.li>
             ))}
-
-            <motion.li className="nav-register-mobile">
-              <motion.button
-                className="register-btn-mobile"
-                onClick={handleRegister}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Register
-              </motion.button>
-            </motion.li>
           </ul>
         </nav>
-
-        <motion.button
-          className="register-btn"
-          onClick={handleRegister}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          Register
-        </motion.button>
 
         <div
           className={`hamburger ${isMenuOpen ? 'active' : ''}`}

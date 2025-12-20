@@ -74,9 +74,9 @@ const EventsPage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="section-title">EVENT DETAILS</h2>
+          <h2 className="section-title">EVENT RECAP</h2>
           <div className="title-line"></div>
-          <p className="section-subtitle">Speakers, Sponsors, and More Information</p>
+          <p className="section-subtitle">Speakers, Venue, and Event Information</p>
         </motion.div>
 
         <div className="events-content">

@@ -222,11 +222,11 @@ const EventCalendar = () => {
             animate={{ scale: 1 }}
             transition={{ delay: 0.3, type: "spring" }}
           >
-            <FaCalendarCheck /> EVENT SCHEDULE
+            <FaCalendarCheck /> EVENT AGENDA
           </motion.div>
           
           <h1 className="modern-title">
-            AWS Cloud Clubs Student Community Day Ahemdabad 2025
+            AWS Cloud Clubs Student Community Day Ahmedabad 2025
             <span className="title-year"></span>
           </h1>
           
